@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="icon" type="image/png" href="assets/images/icon.png">
+	<title>Cheesy Love</title>
+	<link rel="stylesheet" type="text/css" href="assets/spreadsheets/style.css">
+</head>
+<body>
+	<section>
+		<div class="bg"></div>
+		<header>
+			<a href="#" class="logo">Cheesy Love</a>
+			<div class="toggle"></div>
+			<ul class="navigation">
+				<li><a href="#" class="active">Home</a></li>
+				<li><a href="#">Menu</a></li>
+				<li><a href="#">What's New</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</header>
+		<div class="content">
+			<div class="textBox">
+		<!--	<h2>Eat Fresh Everyday</h2>	-->
+				<h2>Do What Tastes Right</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis mi quis ipsum dapibus euismod porttitor ac nulla. Nullam vitae ex lacinia, sagittis ante viverra, blandit sapien. Sed eu vehicula nulla. Aliquam tincidunt ornare dui sed rhoncus. Fusce lobortis sodales nibh at euismod. Praesent at mattis magna. Pellentesque viverra sed risus et suscipit.</p>
+				<a href="#">Learn More</a>
+			</div>
+			<div class="imgBox">
+				<img src="assets/images/burger.png" class="fruits">
+			</div>
+		</div>
+		<ul class="thumb">
+			<li data-text="Burgers" class="active"><img src="assets/images/burger.png" onclick="imgSlider('assets/images/burger.png');changeBgColor('#fc4a55')"></li>
+			<li data-text="Burritos"><img src="assets/images/burrito1.png" onclick="imgSlider('assets/images/burrito1.png');changeBgColor('#ffcc02')"></li>
+			<li data-text="Quesadilla"><img src="assets/images/quesadilla.png" onclick="imgSlider('assets/images/quesadilla.png');changeBgColor('#92ba3c')"></li>
+			<li data-text="Tacos"><img src="assets/images/taco.png" onclick="imgSlider('assets/images/taco.png');changeBgColor('#fb6cb2')"></li>
+			<li data-text="Pizza"><img src="assets/images/pizza1.png" onclick="imgSlider('assets/images/pizza.png');changeBgColor('#ffb42b')"></li>
+		</ul>
+		<ul class="sci">
+			<li><a href="https://www.facebook.com/sayak.ghosh.982/"><img src="assets/images/facebook.png"></a></li>
+			<li><a href="https://twitter.com/login"><img src="assets/images/twitter.png"></a></li>
+			<li><a href="https://www.instagram.com/magical_mutes567/"><img src="assets/images/instagram.png"></a></li>
+		</ul>
+	</section>
+
+	<script type="text/javascript">
+
+		let menuToggle = document.querySelector('.toggle');
+		let navigation = document.querySelector('.navigation');
+		menuToggle.onclick = function(){
+			menuToggle.classList.toggle('active');
+			navigation.classList.toggle('active');
+		}
+
+		// change image on click
+		function imgSlider(anything) {
+			document.querySelector('.fruits').src = anything;
+		}
+
+
+		// change background color
+		function changeBgColor(color){
+			const bg = document.querySelector('.bg');
+			bg.style.background = color;
+		}
+
+
+		// add active class in selected thumbnails
+		let el = document.querySelectorAll('.thumb li');
+		for (let i = 0; i < el.length; i++)
+		{
+			el[i].onclick = function() {
+				var c = 0;
+				while (c < el.length)
+				{
+					el[c++].className = 'check';
+				}
+				el[i].className = 'check active';
+			}
+		}
+	</script>
+</body>
+</html>
